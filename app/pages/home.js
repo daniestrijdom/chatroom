@@ -1,6 +1,11 @@
-const home = (req, res) => {
+const firebase = require("../firebase");
+
+const home = async (req, res) => {
+  const convos = await firebase.getValues("convos");
+  console.log(convos.length);
+
   res.status(200);
-  res.send("HOME PAGE");
+  res.send(convos.filter(Boolean));
 };
 
 module.exports = home;
