@@ -4,7 +4,9 @@
   "description": "a chatroom application built with express and socket.io",
   "main": "app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "develop": "nodemon .",
+    "test": "mocha tests"
   },
   "repository": {
     "type": "git",
