@@ -9,10 +9,13 @@
 
 <body>
     <div class="container-fluid">
+        TOPICS
         <ul>
             <% data.forEach(function(convo) { %>
                 <li>
-                    <%= convo.topic %>
+                    <a href=<%=convo.topic %>>
+                        <%= convo.topic %>
+                    </a>
                 </li>
                 <% }); %>
         </ul>
