@@ -4,8 +4,11 @@ const path = require("path");
 const home = async (req, res) => {
   const convos = await firebase.getValues("convos");
 
-  res.status(200);
-  res.sendFile(path.join(__dirname, "../pages/home", "index.html"));
+  const data = convos.filter(Boolean);
+
+  res.render("home/index", {
+    data
+  });
 };
 
 module.exports = home;

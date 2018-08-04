@@ -20,6 +20,7 @@
   "homepage": "https://github.com/daniestrijdom/chatroom#readme",
   "dependencies": {
     "dotenv-safe": "6.0.0",
+    "ejs": "2.6.1",
     "express": "4.16.3",
     "firebase-admin": "5.13.1",
     "logops": "2.1.0",
