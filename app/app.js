@@ -1,7 +1,13 @@
 const dotenv = require("dotenv-safe").config();
+const logger = require("logops");
 
 const app = require("express")();
 const http = require("http").Server(app);
+
+const env = process.env.NODE_ENV || "development";
+if (env !== "test") {
+  logger.setLevel("DEBUG");
+}
 
 const firebase = require("./firebase");
 firebase.init();
@@ -17,5 +23,5 @@ app.use(routes);
 const port = process.env.PORT || 3000;
 
 http.listen(port, () => {
-  console.log("info", `Serving port port ${port}`);
+  logger.debug(`Serving on port ${port}`);
 });

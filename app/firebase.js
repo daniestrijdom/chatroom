@@ -1,4 +1,5 @@
 const firebase = require("firebase-admin");
+const logger = require("logops");
 
 /**
  * Initialises the firebase application
@@ -17,7 +18,7 @@ const init = (firebaseAdmin = firebase) => {
   // instantiate database to manage listeners
   firebaseAdmin.database();
 
-  console.log("info", "Firebase connection successfully initialised");
+  logger.info("Firebase connection successfully initialised");
 };
 
 /**
