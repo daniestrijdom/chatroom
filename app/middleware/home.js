@@ -1,11 +1,11 @@
 const firebase = require("../firebase");
+const path = require("path");
 
 const home = async (req, res) => {
   const convos = await firebase.getValues("convos");
-  console.log(convos.length);
 
   res.status(200);
-  res.send(convos.filter(Boolean));
+  res.sendFile(path.join(__dirname, "../pages/home", "index.html"));
 };
 
 module.exports = home;

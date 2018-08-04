@@ -1,6 +1,6 @@
-const pages = require("./pages");
+const middleware = require("./middleware");
 const router = require("express").Router();
 
-router.get("/", pages.home);
+router.get("/", middleware.home);
 
 module.exports = router;
