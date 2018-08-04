@@ -1,0 +1,28 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "a chatroom application built with express and socket.io",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniestrijdom/chatroom.git"
+  },
+  "author": "Danie Strijdom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniestrijdom/chatroom/issues"
+  },
+  "homepage": "https://github.com/daniestrijdom/chatroom#readme",
+  "dependencies": {
+    "express": "4.16.3",
+    "socket.io": "2.1.1"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "5.2.0",
+    "nodemon": "1.18.3"
+  }
+}
