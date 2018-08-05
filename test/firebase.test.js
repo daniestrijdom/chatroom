@@ -1,12 +1,13 @@
 const { expect } = require("chai");
 const simple = require("simple-mock");
+const logger = require("logops");
 
 const firebase = require("../app/firebase");
 
 describe("firebase", () => {
   describe("init", () => {
     it("should initialise the firebase application", () => {
-      simple.mock(console, "log");
+      simple.mock(logger, "debug");
 
       const mockFirebase = {
         initializeApp: simple.mock(),
@@ -25,8 +26,8 @@ describe("firebase", () => {
 
       firebase.init(mockFirebase);
 
-      expect(console.log.lastCall.args).to.deep.equal([
-        "debug",
+      logger;
+      expect(logger.debug.lastCall.args).to.deep.equal([
         "Firebase connection successfully initialised"
       ]);
     });
