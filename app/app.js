@@ -11,13 +11,13 @@ if (env !== "test") {
   require("dotenv-safe").config({ silent: true });
 }
 
+const routes = require("./routes");
+app.use(routes);
+
 // health check endpoint
 app.use("/healthCheck", function healthCheck(req, res) {
   res.sendStatus(200);
 });
-
-const routes = require("./routes");
-app.use(routes);
 
 // connect to firebase
 const firebase = require("./firebase");
@@ -28,6 +28,10 @@ const templates = path.join(__dirname, "templates");
 app.set("view engine", "ejs");
 app.set("views", templates);
 app.use(express.static(templates));
+
+// connect to socket io
+const messages = require("./messages");
+messages.connect(http);
 
 const port = process.env.PORT || 3000;
 http.listen(port, () => {
