@@ -4,21 +4,47 @@
     <title>chatroom</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="home/icomoon/style.css">
     <link rel="stylesheet" type="text/css" href="home/index.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        TOPICS
-        <ul>
-            <% data.forEach(function(convo) { %>
+    <header>
+        <nav>
+            <ul>
                 <li>
-                    <a href=<%=convo.topic %>>
-                        <%= convo.topic %>
-                    </a>
+                    <a href="#">About</a>
                 </li>
-                <% }); %>
-        </ul>
+                <li>
+                    <a href="#">Rules</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+                <div class="room-titles">
+                    <i class="icon-bubbles"></i> Rooms by Topic
+                </div>
+                <ul>
+
+                    <% data.forEach(function(convo) { %>
+                        <a href=<%=convo.id %>>
+                            <li>
+                                <i class="icon-users"></i>
+                                <%= convo.topic %>
+                            </li>
+                        </a>
+                        <% }); %>
+                </ul>
+
+            </div>
+        </div>
+
     </div>
 
 </body>
