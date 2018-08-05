@@ -18,7 +18,7 @@ const init = (firebaseAdmin = firebase) => {
   // instantiate database to manage listeners
   firebaseAdmin.database();
 
-  logger.info("Firebase connection successfully initialised");
+  logger.debug("Firebase connection successfully initialised");
 };
 
 /**

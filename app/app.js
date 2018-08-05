@@ -1,4 +1,3 @@
-const dotenv = require("dotenv-safe").config();
 const logger = require("logops");
 const path = require("path");
 
@@ -9,6 +8,7 @@ const http = require("http").Server(app);
 const env = process.env.NODE_ENV || "development";
 if (env !== "test") {
   logger.setLevel("DEBUG");
+  require("dotenv-safe").config({ silent: true });
 }
 
 // health check endpoint
