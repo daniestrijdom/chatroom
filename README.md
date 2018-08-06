@@ -24,6 +24,7 @@ This service uses express on the backend, firebase real time database for storag
 - User who creates a chatroom can moderate the conversation by kicking trolls
 - User can browse paginated chatrooms on the home page
 - User can search for chatroom by keyword
+- Replace template front end with React & some state management library (possiby redux)
 
 ## Licence
 

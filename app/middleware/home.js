@@ -6,7 +6,7 @@ const home = async (req, res) => {
 
   const data = convos.filter(Boolean);
 
-  res.render("home/index", {
+  res.render("home", {
     data
   });
 };
