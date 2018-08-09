@@ -1,9 +1,5 @@
-const logger = require("logops");
-
-const room = (req, res) => {
-  logger.debug(req.params.id);
-
-  res.render("room");
+const room = async (req, res) => {
+  res.render("room/index");
 };
 
 module.exports = room;

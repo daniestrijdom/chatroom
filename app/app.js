@@ -24,14 +24,14 @@ const firebase = require("./firebase");
 firebase.init();
 
 // make static assets available
-const templates = path.join(__dirname, "templates");
-app.set("view engine", "ejs");
-app.set("views", templates);
-app.use(express.static(templates));
+app.engine(".html", require("ejs").__express);
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "html");
 
 // connect to socket io
-const messages = require("./messages");
-messages.connect(http);
+const sockets = require("./io");
+sockets.connect(http);
 
 const port = process.env.PORT || 3000;
 http.listen(port, () => {

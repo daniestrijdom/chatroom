@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <title>room</title>
+
+    <!-- links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/room/style.css">
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Rules</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="chat-titles">Online Users</div>
+                <ul class="user-list" id="users"></ul>
+            </div>
+
+            <div class="col-md-5">
+                <div class="chat-titles">
+                    <i class="icon-bubbles"></i> Chat Feed
+                </div>
+
+                <div class="chat" id="chat"></div>
+            </div>
+
+            <div class="col-md-4">
+                <form id="messageForm">
+                    <div class="form-group">
+                        <label class='chat-titles'>Enter Message</label>
+                        <textarea class="form-control" id="message"></textarea>
+                        <input type="submit" class="btn btn-primary send-message" value="Send Message" />
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+
+<script>
+    $(function () {
+        var socket = io.connect()
+
+        var $messageForm = $('#messageForm')
+        var $message = $('#message')
+        var $chat = $('#chat')
+
+
+        $messageForm.submit(function (e) {
+            e.preventDefault()
+            socket.emit('send message', $message.val())
+            $message.val('')
+        })
+
+        socket.on('new message', function (data) {
+            $chat.append('<div class="message">' + data.msg + '</div>')
+        })
+
+    })
+</script>
+
+</html>
