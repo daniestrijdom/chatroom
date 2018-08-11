@@ -36,7 +36,7 @@ $(function() {
         $messageArea.css("visibility", "visible");
       }
     });
-    $username.val(" ");
+    $username.val("");
   });
 
   socket.on("get users", function(data) {

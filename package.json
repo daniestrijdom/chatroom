@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/daniestrijdom/chatroom#readme",
   "dependencies": {
+    "chance": "1.0.16",
     "delay": "3.0.0",
     "dotenv-safe": "6.0.0",
     "ejs": "2.6.1",

@@ -1,4 +1,10 @@
 const logger = require("logops");
+const Chance = require("chance");
+
+const fakeName = () => {
+  const chance = new Chance();
+  return chance.string({ length: 10, pool: "ABCDEFGHIJKLMNOPQRSTUV" });
+};
 
 const connect = httpModule => {
   const io = require("socket.io")(httpModule);
@@ -25,7 +31,10 @@ const connect = httpModule => {
     // new user
     socket.on("new user", function(data, callback) {
       callback(true);
-      socket.username = data;
+
+      const username = data !== "" ? data : fakeName();
+
+      socket.username = username;
       users.push(socket.username);
       updateUsernames();
     });

@@ -1,4 +1,3 @@
-const home = require("./home");
-const room = require("./rooms");
+const room = require("./room");
 
-module.exports = { home, room };
+module.exports = { room };

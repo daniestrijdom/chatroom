@@ -1,5 +1,5 @@
 const room = async (req, res) => {
-  res.render("room/index");
+  res.render("index");
 };
 
 module.exports = room;

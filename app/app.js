@@ -19,10 +19,6 @@ app.use("/healthCheck", function healthCheck(req, res) {
   res.sendStatus(200);
 });
 
-// connect to firebase
-const firebase = require("./firebase");
-firebase.init();
-
 // make static assets available
 app.engine(".html", require("ejs").__express);
 app.set("views", path.join(__dirname, "views"));
