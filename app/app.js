@@ -8,7 +8,7 @@ const http = require("http").Server(app);
 const env = process.env.NODE_ENV || "development";
 if (env !== "test") {
   logger.setLevel("DEBUG");
-  require("dotenv-safe").config({ silent: true });
+  require("dotenv-safe").config({ silent: true, allowEmptyValues: true });
 }
 
 const routes = require("./routes");
