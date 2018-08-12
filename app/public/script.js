@@ -19,7 +19,9 @@ $(function() {
   socket.on("new message", function(data) {
     $chat
       .append(
-        '<div class="message"><strong>' +
+        '<div class="message" style="background-color:' +
+          data.color +
+          '"><strong>' +
           data.user +
           ": </strong>" +
           data.msg +
@@ -43,7 +45,12 @@ $(function() {
     var html = "";
 
     for (var i = 0; i < data.length; i++) {
-      html += "<li>  " + data[i] + "</li>";
+      html +=
+        '<li class="online-users" style="background-color:' +
+        data[i].color +
+        '">' +
+        data[i].username +
+        "</li>";
     }
     $users.html(html);
   });

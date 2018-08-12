@@ -1,5 +1,6 @@
 const logger = require("logops");
 const Chance = require("chance");
+const randomcolor = require("randomcolor");
 
 const fakeName = () => {
   const chance = new Chance();
@@ -25,17 +26,28 @@ const connect = httpModule => {
 
     // send message
     socket.on("send message", function(data) {
-      io.sockets.emit("new message", { msg: data, user: socket.username });
+      const currentUser = users.filter(
+        user => user.username === socket.username
+      );
+
+      console.log(currentUser);
+      const [{ username, color }] = currentUser;
+      io.sockets.emit("new message", { msg: data, user: username, color });
     });
 
     // new user
     socket.on("new user", function(data, callback) {
+      const color = randomcolor({
+        luminosity: "light",
+        hue: "green"
+      });
+
       callback(true);
 
       const username = data !== "" ? data : fakeName();
 
       socket.username = username;
-      users.push(socket.username);
+      users.push({ username, color });
       updateUsernames();
     });
 
