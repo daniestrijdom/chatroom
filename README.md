@@ -1,4 +1,4 @@
-# chatroom
+# Chatroom
 
 A chatroom application built with express and socket.io
 
@@ -10,12 +10,12 @@ A simple chatroom application. A user can pick a name and join the conversation,
 
 1. `git clone` + this repo then cd in.
 
-# With docker
+### With docker
 
 1. `docker build . -t chatroom`
 2. `docker run -p 3000:3000 chatroom`
 
-# Without docker
+### Without docker
 
 2. `npm i --production`
 3. `npm start`
