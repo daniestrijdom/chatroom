@@ -2,6 +2,10 @@
 
 A chatroom application built with express and socket.io
 
+<p align="center">
+  <img src="/example.png" width="350" >
+</p>
+
 ## Overview
 
 A simple chatroom application. A user can pick a name and join the conversation, no conversation history will be visible.
