@@ -14,14 +14,18 @@ const connect = httpModule => {
 
   io.on("connection", function(socket) {
     connections.push(socket);
-    logger.debug(`new user connected, connections: ${connections.length}`);
+    logger.debug(`new connection, current connections: ${connections.length}`);
 
     // disconnect
     socket.on("disconnect", function() {
       users.splice(users.indexOf(socket.username), 1);
       updateUsernames();
       connections.splice(connections.indexOf(socket), 1);
-      logger.debug(`user disconnected, connections: ${connections.length}`);
+      logger.debug(
+        `user ${socket.username} disconnected, current connections: ${
+          connections.length
+        }`
+      );
     });
 
     // send message
@@ -30,7 +34,6 @@ const connect = httpModule => {
         user => user.username === socket.username
       );
 
-      console.log(currentUser);
       const [{ username, color }] = currentUser;
       io.sockets.emit("new message", { msg: data, user: username, color });
     });
@@ -45,6 +48,8 @@ const connect = httpModule => {
       callback(true);
 
       const username = data !== "" ? data : fakeName();
+
+      logger.debug(`user joined chat as - ${username}`);
 
       socket.username = username;
       users.push({ username, color });

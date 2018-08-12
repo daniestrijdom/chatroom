@@ -4,26 +4,23 @@ A chatroom application built with express and socket.io
 
 ## Overview
 
-Users can join (or create) a coversation. There are no accounts and no chat history, only discussion topics with a limit number of participants to encourage everyone to add their unreserved opinion to the conversation.
+A simple chatroom application. A user can pick a name and join the conversation, no conversation history will be visible.
 
 ## Technical Specifications
 
-This service uses express on the backend, firebase real time database for storage, and socket.io for handling the messaging functionality.
+This service uses express on the backend, and socket.io for handling the messaging functionality, and ejs for rendering on the front end.
 
 ## Miminal Viable Product Features
 
 - User can choose a name
-- User can see a list of open chat rooms
-- User can join a chat room and
-  - see live conversation
-  - participate in live conversation
+- User can see real-time conversation
+- User can participate in real-time conversation
+- User can see who the names of other conversation participants
+- Users are distinguisha
 
 ## Planned Enhancements
 
 - User can create a chat room
-- User who creates a chatroom can moderate the conversation by kicking trolls
-- User can browse paginated chatrooms on the home page
-- User can search for chatroom by keyword
 - Replace template front end with React & some state management library (possiby redux)
 
 ## Licence
