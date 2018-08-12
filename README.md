@@ -6,6 +6,22 @@ A chatroom application built with express and socket.io
 
 A simple chatroom application. A user can pick a name and join the conversation, no conversation history will be visible.
 
+## Usage
+
+1. `git clone` + this repo then cd in.
+
+# With docker
+
+1. `docker build . -t chatroom`
+2. `docker run -p 3000:3000 chatroom`
+
+# Without docker
+
+2. `npm i --production`
+3. `npm start`
+
+App will run on http://localhost:3000/
+
 ## Technical Specifications
 
 This service uses express on the backend, and socket.io for handling the messaging functionality, and ejs for rendering on the front end.
