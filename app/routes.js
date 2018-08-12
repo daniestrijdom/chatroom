@@ -1,4 +1,3 @@
-const middleware = require("./middleware");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
