@@ -2,9 +2,7 @@
 
 A chatroom application built with express and socket.io
 
-<p align="center">
-  <img src="/example.png" width="350" >
-</p>
+<img src="/example.png" alt='example.png'>
 
 ## Overview
 
